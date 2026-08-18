@@ -38,4 +38,38 @@ nav a {
     padding: 12px 20px;
     text-decoration: none;
     border-radius: 6px;
+    margin-top: 15px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #222;
+}
+
+h2 {
+    font-size: 28px;
+    color: #222;
+}
+
+section img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.presentacion {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
