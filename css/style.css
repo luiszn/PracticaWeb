@@ -1,5 +1,16 @@
 body {
     background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #222;
 }
 
 h1 {
@@ -29,6 +40,11 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00bcd4;
 }
 
 .boton {
@@ -39,6 +55,7 @@ nav a {
     text-decoration: none;
     border-radius: 6px;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 main {
@@ -72,4 +89,69 @@ section img {
     display: flex;
     align-items: center;
     gap: 40px;
+}
+
+.proyectos {
+    display: flex;
+    gap: 20px;
+}
+
+.proyecto {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.proyecto {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+
+    .presentacion {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .proyectos {
+        flex-direction: column;
+    }
+
+}
+
+.proyecto {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.proyecto:hover {
+    transform: translateY(-5px);
+}
+
+.boton {
+    transition: transform 0.2s;
+}
+
+.boton:hover {
+    transform: scale(1.05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

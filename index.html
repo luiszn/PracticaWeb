@@ -15,10 +15,10 @@
         <h1>Hola, soy Luis</h1>
 
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Sobre mí</a>
-            <a href="#">Proyectos</a>
-            <a href="#">Contacto</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
         </nav>
     </header>
 
@@ -33,26 +33,70 @@
                     <h2>Sobre mí</h2>
 
                     <p>
-                        Soy estudiante de Ingeniería de Sistemas
-                        y estoy aprendiendo desarrollo web.
+                        Desarrollador web
                     </p>
 
-                    <a href="#" class="boton">Ver mis proyectos</a>
+                    <a href="#" class="boton" id="btnProyectos">Ver mis proyectos</a>
+                    <p id="mensaje"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <h2>Mis proyectos</h2>
+
+            <div class="proyectos">
+
+                <div class="proyecto">
+                    <h3>Sistema de gestión</h3>
+                    <p>
+                        Proyecto web para gestionar información
+                        de una organización.
+                    </p>
+                    <a href="#">Ver proyecto</a>
+                </div>
+
+                <div class="proyecto">
+                    <h3>Página personal</h3>
+                    <p>
+                        Mi primer proyecto utilizando HTML,
+                        CSS y JavaScript.
+                    </p>
+                    <a href="#">Ver proyecto</a>
+                </div>
+
+                <div class="proyecto">
+                    <h3>Proyecto futuro</h3>
+                    <p>
+                        Aquí colocaré otro proyecto que
+                        desarrollaré próximamente.
+                    </p>
+                    <a href="#">Ver proyecto</a>
                 </div>
 
             </div>
         </section>
 
         <section>
-            <h2>Mis proyectos</h2>
+            <section id="contacto">
+                <h2>Contacto</h2>
 
-            <p>Aquí colocaré mis proyectos.</p>
-        </section>
+                <form id="formulario-contacto">
 
-        <section>
-            <h2>Contacto</h2>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
 
-            <p>Puedes contactarme aquí.</p>
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje"></textarea>
+
+                    <button type="submit">Enviar mensaje</button>
+
+                </form>
+            </section>
         </section>
 
     </main>
@@ -60,7 +104,7 @@
     <footer>
         <p>© 2026 Luis</p>
     </footer>
-
+    <script src="javascript/script.js"></script>
 </body>
 
 </html>
