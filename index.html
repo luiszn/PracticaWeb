@@ -47,34 +47,9 @@
         <section id="proyectos">
             <h2>Mis proyectos</h2>
 
-            <div class="proyectos">
+            <div class="proyectos" id="lista-proyectos">
 
-                <div class="proyecto">
-                    <h3>Sistema de gestión</h3>
-                    <p>
-                        Proyecto web para gestionar información
-                        de una organización.
-                    </p>
-                    <a href="#">Ver proyecto</a>
-                </div>
 
-                <div class="proyecto">
-                    <h3>Página personal</h3>
-                    <p>
-                        Mi primer proyecto utilizando HTML,
-                        CSS y JavaScript.
-                    </p>
-                    <a href="#">Ver proyecto</a>
-                </div>
-
-                <div class="proyecto">
-                    <h3>Proyecto futuro</h3>
-                    <p>
-                        Aquí colocaré otro proyecto que
-                        desarrollaré próximamente.
-                    </p>
-                    <a href="#">Ver proyecto</a>
-                </div>
 
             </div>
         </section>
@@ -101,7 +76,30 @@
         </section>
 
     </main>
+    <div id="modal-proyecto" class="modal">
 
+        <div class="modal-contenido">
+
+            <button id="cerrar-modal" class="cerrar-modal">
+                ×
+            </button>
+
+            <h2 id="modal-titulo"></h2>
+
+            <p id="modal-descripcion"></p>
+
+            <p id="modal-tecnologia"></p>
+            <a id="modal-enlace" href="#" target="_blank">
+                Ver proyecto
+            </a>
+
+            <button id="btn-cerrar-modal">
+                Cerrar
+            </button>
+
+        </div>
+
+    </div>
     <footer>
         <p>© 2026 Luis</p>
     </footer>

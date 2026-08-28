@@ -3,7 +3,7 @@ const mensaje = document.getElementById("mensaje");
 const proyectos = document.getElementById("proyectos");
 
 const formulario = document.getElementById("formulario-contacto");
-
+const modalEnlace = document.getElementById("modal-enlace");
 const nombre = document.getElementById("nombre");
 const email = document.getElementById("email");
 const mensajeContacto = document.getElementById("mensaje-contacto");
@@ -15,6 +15,79 @@ const errorMensaje = document.getElementById("error-mensaje");
 const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const btnTema = document.getElementById("btnTema");
 
+const modal = document.getElementById("modal-proyecto");
+
+const modalTitulo = document.getElementById("modal-titulo");
+
+const modalDescripcion = document.getElementById("modal-descripcion");
+
+const modalTecnologia = document.getElementById("modal-tecnologia");
+
+const cerrarModal = document.getElementById("cerrar-modal");
+
+const btnCerrarModal = document.getElementById("btn-cerrar-modal");
+
+const contenedorProyectos = document.getElementById("lista-proyectos");
+const listaProyectos = [
+    {
+        nombre: 'Sistema de Gestión de Imprenta "HALO"',
+        descripcion: "Sistema para gestionar información y procesos de una imprenta.",
+        tecnologia: "HTML, CSS, JavaScript",
+        url: "#"
+    },
+    {
+        nombre: 'Centro de Rehabilitación y Cuidado Personal "AVALE"',
+        descripcion: "Sistema web para gestionar pacientes, citas, inventario y ventas.",
+        tecnologia: "HTML, CSS, JavaScript",
+        url: "#"
+    }
+];
+listaProyectos.forEach(function (proyecto) {
+
+    const tarjeta = document.createElement("div");
+
+    tarjeta.className = "proyecto";
+
+    tarjeta.innerHTML = `
+        <h3>${proyecto.nombre}</h3>
+
+        <p>${proyecto.descripcion}</p>
+
+        <p>${proyecto.tecnologia}</p>
+
+        <button class="btn-proyecto">Ver proyecto</button>
+    `;
+
+    const botonProyecto = tarjeta.querySelector(".btn-proyecto");
+
+    botonProyecto.addEventListener("click", function () {
+
+        modalTitulo.textContent = proyecto.nombre;
+
+        modalDescripcion.textContent = proyecto.descripcion;
+
+        modalTecnologia.textContent =
+            "Tecnología: " + proyecto.tecnologia;
+
+        modalEnlace.href = proyecto.url;
+
+        modal.style.display = "flex";
+
+    });
+
+    contenedorProyectos.appendChild(tarjeta);
+
+});
+cerrarModal.addEventListener("click", function () {
+
+    modal.style.display = "none";
+
+});
+btnCerrarModal.addEventListener("click", function () {
+
+    modal.style.display = "none";
+
+});
 // BOTÓN DE PROYECTOS
 
 boton.addEventListener("click", function () {
