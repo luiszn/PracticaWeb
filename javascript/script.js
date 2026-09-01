@@ -13,9 +13,9 @@ const errorEmail = document.getElementById("error-email");
 const errorMensaje = document.getElementById("error-mensaje");
 
 const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const btnTema = document.getElementById("btnTema");
 
 const modal = document.getElementById("modal-proyecto");
+const modalImagen = document.getElementById("modal-imagen");
 
 const modalTitulo = document.getElementById("modal-titulo");
 
@@ -27,19 +27,22 @@ const cerrarModal = document.getElementById("cerrar-modal");
 
 const btnCerrarModal = document.getElementById("btn-cerrar-modal");
 
+
 const contenedorProyectos = document.getElementById("lista-proyectos");
 const listaProyectos = [
     {
         nombre: 'Sistema de Gestión de Imprenta "HALO"',
         descripcion: "Sistema para gestionar información y procesos de una imprenta.",
         tecnologia: "HTML, CSS, JavaScript",
-        url: "#"
+        url: "#",
+        imagen: "Imagenes/halo.jpg"
     },
     {
         nombre: 'Centro de Rehabilitación y Cuidado Personal "AVALE"',
         descripcion: "Sistema web para gestionar pacientes, citas, inventario y ventas.",
         tecnologia: "HTML, CSS, JavaScript",
-        url: "#"
+        url: "#",
+        imagen: "Imagenes/avale.jpeg"
     }
 ];
 listaProyectos.forEach(function (proyecto) {
@@ -49,18 +52,23 @@ listaProyectos.forEach(function (proyecto) {
     tarjeta.className = "proyecto";
 
     tarjeta.innerHTML = `
-        <h3>${proyecto.nombre}</h3>
+    <img src="${proyecto.imagen}" alt="${proyecto.nombre}">
 
-        <p>${proyecto.descripcion}</p>
+    <h3>${proyecto.nombre}</h3>
 
-        <p>${proyecto.tecnologia}</p>
+    <p>${proyecto.descripcion}</p>
 
-        <button class="btn-proyecto">Ver proyecto</button>
-    `;
+    <p>${proyecto.tecnologia}</p>
+
+    <button class="btn-proyecto">Ver proyecto</button>
+`;
 
     const botonProyecto = tarjeta.querySelector(".btn-proyecto");
 
     botonProyecto.addEventListener("click", function () {
+
+        modalImagen.src = proyecto.imagen;
+        modalImagen.alt = proyecto.nombre;
 
         modalTitulo.textContent = proyecto.nombre;
 
@@ -91,8 +99,6 @@ btnCerrarModal.addEventListener("click", function () {
 // BOTÓN DE PROYECTOS
 
 boton.addEventListener("click", function () {
-
-    mensaje.textContent = "¡Gracias por visitar mi portafolio!";
 
     boton.textContent = "¡Gracias por visitarme!";
 
@@ -238,33 +244,21 @@ mensajeContacto.addEventListener("input", function () {
     }
 
 });
-btnTema.addEventListener("click", function () {
+modal.addEventListener("click", function (event) {
 
-    document.body.classList.toggle("modo-oscuro");
+    if (event.target === modal) {
 
-    if (document.body.classList.contains("modo-oscuro")) {
-
-        btnTema.textContent = "Modo claro";
-
-        localStorage.setItem("tema", "oscuro");
-
-    } else {
-
-        btnTema.textContent = "Modo oscuro";
-
-        localStorage.setItem("tema", "claro");
+        modal.style.display = "none";
 
     }
 
 });
+document.addEventListener("keydown", function (event) {
 
+    if (event.key === "Escape") {
 
-const temaGuardado = localStorage.getItem("tema");
+        modal.style.display = "none";
 
-if (temaGuardado === "oscuro") {
+    }
 
-    document.body.classList.add("modo-oscuro");
-
-    btnTema.textContent = "Modo claro";
-
-}
+});
