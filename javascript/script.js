@@ -262,3 +262,112 @@ document.addEventListener("keydown", function (event) {
     }
 
 });
+
+
+// =========================
+// DARK MODE TOGGLE
+// =========================
+
+const btnTema = document.getElementById("btn-tema");
+const htmlElement = document.documentElement;
+
+// Check saved preference or system preference
+function getPreferredTheme() {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyTheme(theme) {
+    if (theme === "dark") {
+        htmlElement.setAttribute("data-theme", "dark");
+        btnTema.textContent = "☀️";
+    } else {
+        htmlElement.removeAttribute("data-theme");
+        btnTema.textContent = "🌙";
+    }
+    localStorage.setItem("theme", theme);
+}
+
+// Apply on load
+applyTheme(getPreferredTheme());
+
+// Toggle on click
+btnTema.addEventListener("click", function () {
+    const current = htmlElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+});
+
+// Listen for system theme changes
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+    if (!localStorage.getItem("theme")) {
+        applyTheme(e.matches ? "dark" : "light");
+    }
+});
+
+
+// =========================
+// HAMBURGER MENU
+// =========================
+
+const btnMenu = document.getElementById("btn-menu");
+const navPrincipal = document.getElementById("nav-principal");
+const navOverlay = document.getElementById("nav-overlay");
+
+function toggleMenu() {
+    btnMenu.classList.toggle("active");
+    navPrincipal.classList.toggle("nav-active");
+    navOverlay.classList.toggle("active");
+}
+
+function closeMenu() {
+    btnMenu.classList.remove("active");
+    navPrincipal.classList.remove("nav-active");
+    navOverlay.classList.remove("active");
+}
+
+btnMenu.addEventListener("click", toggleMenu);
+navOverlay.addEventListener("click", closeMenu);
+
+// Close menu when clicking a nav link
+navPrincipal.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+});
+
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+revealElements.forEach(function (el) {
+    revealObserver.observe(el);
+});
+
+
+// =========================
+// HEADER SCROLL EFFECT
+// =========================
+
+const headerPrincipal = document.getElementById("header-principal");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+        headerPrincipal.classList.add("scrolled");
+    } else {
+        headerPrincipal.classList.remove("scrolled");
+    }
+});

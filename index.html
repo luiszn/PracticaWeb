@@ -4,33 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portafolio de Luis Manosalva — Estudiante de Ingeniería de Sistemas, desarrollo web con HTML, CSS y JavaScript.">
 
-    <title>Mi página personal</title>
+    <title>Luis Manosalva — Portafolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Hola, soy Luis Manosalva</h1>
+    <header id="header-principal">
+        <div class="header-left">
+            <h1>Luis Manosalva</h1>
+        </div>
 
-        <nav>
+        <nav id="nav-principal">
             <a href="#inicio">Inicio</a>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#contacto">Contacto</a>
         </nav>
+
+        <div class="header-actions">
+            <button id="btn-tema" aria-label="Cambiar tema">🌙</button>
+            <button id="btn-menu" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
+
+    <!-- Overlay for mobile nav -->
+    <div class="nav-overlay" id="nav-overlay"></div>
 
     <main>
 
-        <section>
-            <div class="presentacion">
+        <section id="inicio">
+            <div class="presentacion reveal">
 
                 <img src="Imagenes/luis.jpg" alt="Foto de Luis">
 
                 <div>
-                    <h2>Sobre mí</h2>
+                    <h2 id="sobre-mi">Sobre mí</h2>
 
                     <p>
                         Estudiante de Ingeniería de Sistemas interesado en el desarrollo de software y el desarrollo web
@@ -45,7 +61,7 @@
             </div>
         </section>
 
-        <section id="proyectos">
+        <section id="proyectos" class="reveal">
             <h2>Mis proyectos</h2>
 
             <div class="proyectos" id="lista-proyectos">
@@ -55,7 +71,7 @@
             </div>
         </section>
 
-        <section id="contacto">
+        <section id="contacto" class="reveal">
             <h2>Contacto</h2>
             <form id="formulario-contacto">
 
@@ -105,7 +121,12 @@
 
     </div>
     <footer>
-        <p>© 2026 Luis</p>
+        <div class="footer-links">
+            <a href="#" aria-label="GitHub" title="GitHub">⌨️</a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn">💼</a>
+            <a href="#" aria-label="Email" title="Email">✉️</a>
+        </div>
+        <p>© 2026 Luis Manosalva</p>
     </footer>
     <script src="javascript/script.js"></script>
 </body>
